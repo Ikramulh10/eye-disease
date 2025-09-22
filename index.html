@@ -297,9 +297,9 @@
   <section id="contact" class="content" style="display:none;">
     <h2>Contact Us</h2>
     <p>If you have questions or need support, please reach out:</p>
-    <p>Email: 4mt22ai017@mite.ac.in</p>
-    <p>Phone: 9846989491</p>
-    <p>Address: Mangalore Institute Of Technology And Engineering</p>
+    <p>Email: clinic@example.com</p>
+    <p>Phone: +1-234-567-8900</p>
+    <p>Address: 123 Health St, Medical City, Country</p>
     <h3>Send us a message</h3>
     <form id="contact-form">
       <input type="text" id="contact-name" placeholder="Your Name" required />
@@ -410,10 +410,15 @@
     }
   });
 
-  const response = await fetch('https://eye-disease-detection-ur2x.onrender.com/predict', {
-  method: 'POST',
-  body: formData
-});
+  async function sendImageToBackend(file) {
+    const formData = new FormData();
+    formData.append('file', file);
+    try {
+      // Update backend URL here:
+      const response = await fetch('https://eye-disease-detection-67jk.onrender.com/predict', {
+        method: 'POST',
+        body: formData
+      });
       if (!response.ok) throw new Error('Prediction request failed');
       return await response.json();
     } catch (error) {
@@ -467,4 +472,3 @@
 
 </body>
 </html>
-
