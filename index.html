@@ -314,6 +314,9 @@
 </main>
 
 <script>
+  // Configurable backend URL:
+  const API_BASE_URL = 'http://13.239.251.220:8000';
+
   const loginContainer = document.getElementById('login-container');
   const navBar = document.getElementById('nav-bar');
   const mainContent = document.getElementById('main-content');
@@ -414,8 +417,7 @@
     const formData = new FormData();
     formData.append('file', file);
     try {
-      // Update backend URL here:
-      const response = await fetch('http://13.239.251.220:8000/predict', {
+      const response = await fetch(`${API_BASE_URL}/predict`, {
         method: 'POST',
         body: formData
       });
@@ -472,6 +474,3 @@
 
 </body>
 </html>
-
-
-
